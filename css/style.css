@@ -1,0 +1,22 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+.default{
+    background-color:white;
+}
+.dark{
+    background-color:rgb(97, 88, 88);
+    color: white;
+}
+.blue{
+    background-color:rgb(88, 143, 185);
+}
+.red{
+    background-color: rgb(199, 92, 92);
+    color: white;
+}
+.center{
+    display: flex;
+    justify-content: center;
+}
