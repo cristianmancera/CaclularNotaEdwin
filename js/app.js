@@ -17,54 +17,68 @@ check1.addEventListener("click", cambio);
 check2.addEventListener("click", cambio);
 check3.addEventListener("click", cambio);
 check4.addEventListener("click", cambio);
-winBtn.addEventListener("click", calcularWin);
-honorBtn.addEventListener("click", calcularHon);
-getBtn.addEventListener("click", calcularGet);
+winBtn.addEventListener("click", function(){
+    const NAME = document.getElementById("name").value;
+    const N1 = document.getElementById("note1").value;
+    const N2 = document.getElementById("note2").value;
+    const NMISSING = document.getElementById("note3");
+    if(N1<1 || N1>5 || N2<1 || N2>5){
+        result.value = "Verifique los campos";
+        result.style.color = "red"
+    }else{
+        result.style.color = "grey"
+        
 
-function calcularGet(){
+        const PROCESS1 = (0.3*N1) + (0.3 * N2);
+        const PROCESS2 = 3.4 - PROCESS1;
+        const FOUNDED = PROCESS2/0.4;
+        const DEF = FOUNDED.toFixed(2);
+        result.value = 'La nota que necesita para ganar la materia es:' + DEF;
+    }
+    
+});
+honorBtn.addEventListener("click", function(event) {
+    const NAME = document.getElementById("name").value;
+    const N1 = document.getElementById("note1").value;
+    const N2 = document.getElementById("note2").value;
+    const NMISSING = document.getElementById("note3");
+    if(N1<1 || N1>5 || N2<1 || N2>5){
+        result.value = "Verifique los campos";
+        result.style.color = "red"
+    }else{
+        result.style.color = "grey"
+        
+
+        const PROCESS1 = (0.3*N1) + (0.3 * N2);
+        const PROCESS2 = 4.0 - PROCESS1;
+        const FOUNDED = PROCESS2/0.4;
+        const DEF = FOUNDED.toFixed(2);
+        result.value = 'La nota que necesita para cuadro de honor es:' + DEF;
+    }
+    
+});
+
+
+
+getBtn.addEventListener("click", function(event){
+
     const NAME = document.getElementById("name").value;
     const N1 = document.getElementById("note1").value;
     const N2 = document.getElementById("note2").value;
     const NMISSING = document.getElementById("note3");
 
-    const PROCESS1 = (0.3*N1) + (0.3 * N2);
-    const PROCESS2 = 2 - PROCESS1;
-    const FOUNDED = PROCESS2/0.4;
-    const DEF = FOUNDED.toFixed(2);
-    // alert(DEF-1);
-    result.value = 'La nota que necesita para sacar una nota recuperable es:' + DEF;
-
-}
-
-function calcularHon(){
-    const NAME = document.getElementById("name").value;
-    const N1 = document.getElementById("note1").value;
-    const N2 = document.getElementById("note2").value;
-    const NMISSING = document.getElementById("note3");
-
-    const PROCESS1 = (0.3*N1) + (0.3 * N2);
-    const PROCESS2 = 4.0 - PROCESS1;
-    const FOUNDED = PROCESS2/0.4;
-    const DEF = FOUNDED.toFixed(2);
-    // alert(DEF-1);
-    result.value = 'La nota que necesita para cuadro de honor es:' + DEF;
-
-}
-
-function calcularWin(){
-    const NAME = document.getElementById("name").value;
-    const N1 = document.getElementById("note1").value;
-    const N2 = document.getElementById("note2").value;
-    const NMISSING = document.getElementById("note3");
-
-    const PROCESS1 = (0.3*N1) + (0.3 * N2);
-    const PROCESS2 = 3.4 - PROCESS1;
-    const FOUNDED = PROCESS2/0.4;
-    const DEF = FOUNDED.toFixed(2);
-    // alert(DEF-1);
-    result.value = 'La nota que necesita para ganar la materia es:' + DEF;
-
-}
+    if(N1<1 || N1>5 || N2<1 || N2>5){
+        result.value = "Verifique los campos";
+        result.style.color = "red"
+    }else{
+        result.style.color = "grey" 
+        const PROCESS1 = (0.3*N1) + (0.3 * N2);
+        const PROCESS2 = 2 - PROCESS1;
+        const FOUNDED = PROCESS2/0.4;
+        const DEF = FOUNDED.toFixed(2);
+        result.value = 'La nota que necesita para sacar para una nota recuperable es: ' + DEF;
+    }
+});
 function cambio(event){
     opcion = event.target.id;
     if(opcion=="check1"){
